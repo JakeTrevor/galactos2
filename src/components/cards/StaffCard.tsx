@@ -2,7 +2,7 @@ import { Author } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
-import stringify from "~/helpers/stringify";
+import slugify from "~/helpers/slugify";
 
 interface props {
   author: Author;
@@ -12,7 +12,7 @@ const StaffCard: FC<props> = ({ author }) => {
   let { name, job_title, image_url } = author;
   return (
     <Link
-      href={`/staff/${stringify(name)}`}
+      href={`/staff/${slugify(name)}`}
       className="grid h-full w-64 grid-rows-2 items-center justify-items-center gap-5 rounded-xl bg-zinc-900 p-5 transition-all duration-500 hover:scale-105 hover:bg-zinc-800"
     >
       <div className="avatar">

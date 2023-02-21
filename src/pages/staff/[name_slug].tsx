@@ -6,10 +6,10 @@ import ArticleList from "~/components/ArticleList";
 import { api } from "~/utils/api";
 
 const StaffPage: FC = () => {
-  let { stringyName } = useRouter().query;
+  let { name_slug } = useRouter().query;
 
   // @ts-ignore
-  let author: Author = getAuthorByStringifiedName(stringyName);
+  let author: Author = getAuthorBySlug(name_slug);
   if (!author) return <></>;
 
   let { name, job_title, description, image_url, id: authorID } = author;
