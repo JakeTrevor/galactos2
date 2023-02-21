@@ -1,5 +1,8 @@
 {
   "cSpell.words": ["Galactos", "tanstack", "trpc", "Γαλάχτοσ"],
+  "material-icon-theme.folders.associations": {
+    "staff": "docs"
+  },
   "better-comments.tags": [
     {
       "tag": "!",

@@ -34,6 +34,7 @@ model Author {
   description String
   job_title   String
   topics      String
+  image_url   String
   Articles    Article[]
 }
 

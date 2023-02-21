@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Article } from "@prisma/client";
 
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "./cards/ArticleCard";
 
 interface props {
   blockTitle: string;
