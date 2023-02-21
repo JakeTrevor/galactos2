@@ -1,11 +1,13 @@
 import { type NextPage } from "next";
 import LatestArticle from "~/components/LatestArticle";
-import RecentArticlesBlock from "~/components/ArticleList";
+import ArticleList from "~/components/ArticleList";
+import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  // TODO populate this
-  // @ts-ignore
-  let [first, ...others]: Article[] = fetchArticles();
+  // TODO handle status here
+  let { status, error, data: articles } = api.articles.getMostRecent.useQuery();
+
+  let [first, ...others] = articles!;
 
   return (
     <>
@@ -17,9 +19,9 @@ const Home: NextPage = () => {
           (or something)
         </div>
       </div>
-      <LatestArticle article={first} />
+      <LatestArticle article={first!} />
 
-      <RecentArticlesBlock articles={others} blockTitle="Recent articles" />
+      <ArticleList articles={others} blockTitle="Recent articles" />
     </>
   );
 };

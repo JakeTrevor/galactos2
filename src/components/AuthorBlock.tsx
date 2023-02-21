@@ -1,15 +1,13 @@
+import { Author } from "@prisma/client";
 import type { FC } from "react";
 import stringify from "~/helpers/stringify";
 
 interface props {
-  authorID: string;
+  author: Author;
 }
 
-const AuthorBlock: FC<props> = ({ authorID }) => {
-  if (authorID === "loading...") return <></>;
-
-  // @ts-ignore
-  let { name, title, image_url, description } = getAuthorByID(authorID);
+const AuthorBlock: FC<props> = ({ author }) => {
+  let { name, job_title, image_url, description } = author;
 
   return (
     <a
@@ -22,7 +20,7 @@ const AuthorBlock: FC<props> = ({ authorID }) => {
         </div>
       </div>
       <div className="text-primary text-2xl font-semibold">{name}</div>
-      <h2 className="text-center text-xl text-zinc-400">{title}</h2>
+      <h2 className="text-center text-xl text-zinc-400">{job_title}</h2>
 
       <p className="mt-4 text-justify">{description}</p>
     </a>

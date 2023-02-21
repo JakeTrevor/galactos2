@@ -1,17 +1,25 @@
-"client";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import authorInformation from "@/helpers/authorInformation";
-import stringify from "@/helpers/stringify";
+import { Author } from "@prisma/client";
+import ArticleList from "~/components/ArticleList";
+import { api } from "~/utils/api";
 
 const StaffPage: FC = () => {
-  let { aid } = useRouter().query;
-  let author = authorInformation[aid as string];
+  let { stringyName } = useRouter().query;
 
+  // @ts-ignore
+  let author: Author = getAuthorByStringifiedName(stringyName);
   if (!author) return <></>;
 
-  let { name, title, description, image_url } = author;
+  let { name, job_title, description, image_url, id: authorID } = author;
+
+  // TODO write proper handling for this
+  let {
+    status,
+    data: articles,
+    error,
+  } = api.articles.getByAuthor.useQuery(authorID);
 
   return (
     <>
@@ -28,7 +36,7 @@ const StaffPage: FC = () => {
         </div>
         <div className="flex flex-col gap-2">
           <h1 className="text-primary text-3xl font-semibold">{name}</h1>
-          <h2 className="text-zinc-400">{title}</h2>
+          <h2 className="text-zinc-400">{job_title}</h2>
         </div>
       </div>
       <div className="divider"></div>
@@ -36,7 +44,10 @@ const StaffPage: FC = () => {
       <div className="mt-12">
         <h1 className="text-3xl font-semibold">Recent Articles</h1>
         <div className="divider -mb-16"></div>
-        <RecentArticlesBlock something={stringify(name)} />
+        <ArticleList
+          articles={articles!}
+          blockTitle="Articles by this author:"
+        />
       </div>
     </>
   );
