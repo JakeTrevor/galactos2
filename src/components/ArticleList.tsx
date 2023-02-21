@@ -8,7 +8,7 @@ interface props {
   articles: Article[];
 }
 
-const RecentArticlesBlock: FC<props> = ({ blockTitle, articles }) => {
+const ArticleList: FC<props> = ({ blockTitle, articles }) => {
   return (
     <>
       <div className="mt-20 flex flex-col py-5">
@@ -24,4 +24,4 @@ const RecentArticlesBlock: FC<props> = ({ blockTitle, articles }) => {
   );
 };
 
-export default RecentArticlesBlock;
+export default ArticleList;
