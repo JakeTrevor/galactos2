@@ -1,10 +1,12 @@
 import { type NextPage } from "next";
 import LatestArticle from "~/components/LatestArticle";
+import RecentArticlesBlock from "~/components/ArticleList";
 
 const Home: NextPage = () => {
   // TODO populate this
   // @ts-ignore
-  let articles: Article[] = fetchArticles();
+  let [first, ...others]: Article[] = fetchArticles();
+
   return (
     <>
       <div className="my-10">
@@ -15,9 +17,9 @@ const Home: NextPage = () => {
           (or something)
         </div>
       </div>
-      <LatestArticle />
+      <LatestArticle article={first} />
 
-      <RecentArticlesBlock something="senator-marcus" />
+      <RecentArticlesBlock articles={others} blockTitle="Recent articles" />
     </>
   );
 };

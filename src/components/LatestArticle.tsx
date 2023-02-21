@@ -5,7 +5,7 @@ import { Article } from "@prisma/client";
 const LatestArticle: FC<{ article: Article }> = ({ article }) => {
   if (!article) return <></>;
 
-  let { title, content, image_url, id } = article;
+  let { title, content, image, id } = article;
   let snippet = content.split(".").slice(0, 1) + " . . .";
   return (
     <>
@@ -15,7 +15,7 @@ const LatestArticle: FC<{ article: Article }> = ({ article }) => {
       </div>
       <div className="card card-side bg-base-300 h-max shadow-xl">
         <div className="w-2/3">
-          <img className="bg-clip" src={image_url} alt="" />
+          <img className="bg-clip" src={image} alt="" />
         </div>
         <div className="card-body w-1/3">
           <h2 className="card-title">{title}</h2>
