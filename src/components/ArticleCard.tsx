@@ -6,7 +6,7 @@ interface props {
 }
 
 const ArticleCard: FC<props> = ({ article }) => {
-  const { title, content, image, id: articleID } = article;
+  const { title, content, image_url, id: articleID } = article;
 
   let snippet = content.split(".")[0] + " ...";
 
@@ -14,7 +14,7 @@ const ArticleCard: FC<props> = ({ article }) => {
     <>
       <div className="card bg-base-300 min-w-[20rem] shadow-xl">
         <figure>
-          <img src={image} alt="..." />
+          <img src={image_url} alt="..." />
         </figure>
         <div className="card-body">
           <h2 className="card-title mb-4">{title}</h2>
