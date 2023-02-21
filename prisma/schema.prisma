@@ -15,11 +15,11 @@ datasource db {
 }
 
 model Article {
-  id      String @id @default(cuid())
-  title   String
-  content String
-  date    String
-  image   String
+  id        String @id @default(cuid())
+  title     String
+  content   String
+  date      String
+  image_url String @map("image")
   // topic --> should be an enum, SQLite doesn't support it
 
   author   Author @relation(fields: [authorId], references: [id])
