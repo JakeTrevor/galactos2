@@ -7,6 +7,10 @@ const Home: NextPage = () => {
   // TODO handle status here
   let { status, error, data: articles } = api.articles.getMostRecent.useQuery();
 
+  if (status !== "success") {
+    return <p>bullshit</p>;
+  }
+
   let [first, ...others] = articles!;
 
   return (
