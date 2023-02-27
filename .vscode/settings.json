@@ -2,7 +2,15 @@
   "files.exclude": {
     "**/.husky": true
   },
-  "cSpell.words": ["Galactos", "tanstack", "trpc", "unslugify", "Γαλάχτοσ"],
+  "cSpell.words": [
+    "daisyui",
+    "Galactos",
+    "tailwindcss",
+    "tanstack",
+    "trpc",
+    "unslugify",
+    "Γαλάχτοσ"
+  ],
   "material-icon-theme.folders.associations": {
     "staff": "docs"
   },
