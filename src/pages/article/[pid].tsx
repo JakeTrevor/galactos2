@@ -1,12 +1,11 @@
 import { useRouter } from "next/router";
-import { Article } from "@prisma/client";
 import { FC } from "react";
 
 import TitleBlock from "~/components/TitleBlock";
 import AuthorBlock from "~/components/AuthorBlock";
 import { api } from "~/utils/api";
 
-const Article: FC = () => {
+const ArticlePage: FC = () => {
   let { pid } = useRouter().query;
   if (typeof pid !== "string") return <></>;
 
@@ -34,4 +33,4 @@ const Article: FC = () => {
   );
 };
 
-export default Article;
+export default ArticlePage;
