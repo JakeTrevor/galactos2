@@ -14,13 +14,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Topic {
+  WAR
+  ECONOMY
+  POLITICS
+}
+
 model Article {
-  id        String @id @default(cuid())
+  id        String  @id @default(cuid())
   title     String
   content   String
   date      String
-  image_url String @map("image")
-  // topic --> should be an enum, SQLite doesn't support it
+  image_url String  @map("image")
+  topics    Topic[]
 
   author   Author @relation(fields: [authorId], references: [id])
   authorId String
@@ -34,7 +40,7 @@ model Author {
   slug        String
   description String
   job_title   String
-  topics      String
+  topics      Topic[]
   image_url   String
   articles    Article[]
 }
