@@ -5,10 +5,10 @@ import type { FC } from "react";
 const Header: FC = () => {
   return (
     <>
-      <div className="navbar sticky top-0 z-10 bg-base-100 px-16 py-4 shadow-lg">
+      <header className="navbar sticky top-0 z-10 h-[10vh] bg-base-100 px-16 py-4 shadow-lg">
         <div className="flex-1 items-center gap-10">
           <Link href="/">
-            <Image width="48" height="24" src="/logo.svg" alt="Galactos Logo" />
+            <Image width="36" height="18" src="/logo.svg" alt="Galactos Logo" />
           </Link>
           <Link
             href="/"
@@ -25,7 +25,7 @@ const Header: FC = () => {
             Staff
           </Link>
         </div>
-      </div>
+      </header>
     </>
   );
 };

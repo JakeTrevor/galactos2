@@ -24,7 +24,7 @@ export let sampleAuthors: Omit<Author, "slug">[] = [
     name: "Humphrey Appleby",
     description: "Sir Humphrey Appleby is....",
     job_title: "Economics And Government Editor",
-    topics: ["WAR", "ECONOMY"],
     image_url: "",
+    topics: ["WAR", "ECONOMY"],
   },
 ];

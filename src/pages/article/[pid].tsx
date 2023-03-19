@@ -1,20 +1,19 @@
 import { useRouter } from "next/router";
 import { FC } from "react";
-
-import TitleBlock from "~/components/TitleBlock";
-import AuthorBlock from "~/components/AuthorBlock";
+import { AuthorBlock, StatusHandler, TitleBlock } from "~/components";
+import QueryError from "~/components/QueryError";
 import { api } from "~/utils/api";
 
 const ArticlePage: FC = () => {
   let { pid } = useRouter().query;
-  if (typeof pid !== "string") return <></>;
+
+  if (typeof pid !== "string")
+    return <QueryError queryName="pid" query={pid} />;
 
   let { status, data: article, error } = api.articles.getById.useQuery(pid);
 
-  // TODO make a nice error component for this sort of thing
-  if (status === "error") return <p>{error?.message}</p>;
-
-  if (status === "loading") return <p>loading...</p>;
+  if (status !== "success")
+    return <StatusHandler status={status} error={error} />;
 
   let { content, author } = article!;
 

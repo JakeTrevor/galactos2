@@ -2,14 +2,13 @@ import { type NextPage } from "next";
 import LatestArticle from "~/components/LatestArticle";
 import ArticleList from "~/components/ArticleList";
 import { api } from "~/utils/api";
+import StatusHandler from "~/components/StatusHandler";
 
 const Home: NextPage = () => {
-  // TODO handle status here
   let { status, error, data: articles } = api.articles.getMostRecent.useQuery();
 
-  if (status !== "success") {
-    return <p>bullshit</p>;
-  }
+  if (status !== "success")
+    return <StatusHandler status={status} error={error} />;
 
   let [first, ...others] = articles!;
 

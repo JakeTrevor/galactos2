@@ -1,22 +1,26 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import ArticleList from "~/components/ArticleList";
 import { api } from "~/utils/api";
+
+import { ArticleList, QueryError, StatusHandler } from "~/components";
 
 const StaffPage: FC = () => {
   let { name_slug } = useRouter().query;
 
-  // TODO proper handling here
+  if (typeof name_slug !== "string")
+    return <QueryError queryName="name_slug" query={name_slug} />;
+
   let {
     status,
     error,
     data: author,
-  } = api.authors.getBySlug.useQuery(name_slug as string);
+  } = api.authors.getBySlug.useQuery(name_slug);
 
-  if (!author) return <></>;
+  if (status !== "success")
+    return <StatusHandler status={status} error={error} />;
 
-  let { name, job_title, description, image_url, articles } = author;
+  let { name, job_title, description, image_url, articles } = author!;
 
   return (
     <>
@@ -26,7 +30,7 @@ const StaffPage: FC = () => {
             <Image
               width="300"
               height="400"
-              alt={`${author}-image`}
+              alt={`${name}-image`}
               src={image_url}
             />
           </div>
