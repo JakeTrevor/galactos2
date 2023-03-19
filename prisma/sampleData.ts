@@ -3,6 +3,7 @@ import { Article, Author } from "@prisma/client";
 export let sampleArticles: Omit<Article, "id" | "authorId">[] = [
   {
     title: "Hello world",
+    topics: ["WAR"],
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec orci arcu, ornare vel consequat ac, varius eu augue. Quisque ac nibh in metus malesuada elementum. Donec et posuere augue, et fringilla urna. Cras mattis turpis at magna facilisis, vel convallis elit placerat. Sed hendrerit, purus rhoncus rutrum blandit, velit justo varius est, nec gravida velit mi quis orci. Ut ac tempus justo. Nullam vehicula ac sapien vel hendrerit. Quisque vel eros gravida, dictum ex eu, dictum lorem. Proin aliquet mi sapien, sed consectetur libero egestas fringilla.
     
     Praesent blandit eu nisl sed rhoncus. Nullam ut ex pretium, elementum libero sed, viverra odio. Donec arcu libero, vulputate ut ante vitae, finibus dictum nisl. Sed dignissim sem et justo lacinia, quis elementum augue mollis. Pellentesque vel leo eu nisl ultricies laoreet ut id dolor. Proin at pharetra nunc. Morbi dolor lacus, tincidunt sit amet ligula viverra, dapibus venenatis libero. In aliquet mauris erat, a egestas neque porttitor at. Quisque ac condimentum diam, id tempus libero. Donec erat orci, rhoncus at ex in, elementum eleifend urna. Nulla at dolor metus. Aenean purus arcu, ullamcorper eu porttitor nec, aliquam vel massa.
@@ -17,13 +18,13 @@ export let sampleArticles: Omit<Article, "id" | "authorId">[] = [
   },
 ];
 
-export let sampleAuthors: Author[] = [
+export let sampleAuthors: Omit<Author, "slug">[] = [
   {
     id: "clenj47500000abtw5evpjaon",
     name: "Humphrey Appleby",
     description: "Sir Humphrey Appleby is....",
     job_title: "Economics And Government Editor",
-    topics: "all of them",
+    topics: ["WAR", "ECONOMY"],
     image_url: "",
   },
 ];
