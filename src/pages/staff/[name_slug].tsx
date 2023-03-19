@@ -32,7 +32,7 @@ const StaffPage: FC = () => {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <h1 className="text-primary text-3xl font-semibold">{name}</h1>
+          <h1 className="text-3xl font-semibold text-primary">{name}</h1>
           <h2 className="text-zinc-400">{job_title}</h2>
         </div>
       </div>

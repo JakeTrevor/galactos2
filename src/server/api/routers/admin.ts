@@ -1,11 +1,14 @@
 import { sampleArticles, sampleAuthors } from "prisma/sampleData";
+import slugify from "~/helpers/slugify";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const adminRouter = createTRPCRouter({
   populateDB: publicProcedure.mutation(async ({ ctx }) => {
     console.log("wahoo!");
     for (let each of sampleAuthors) {
-      await ctx.prisma.author.create({ data: each });
+      await ctx.prisma.author.create({
+        data: { ...each, slug: slugify(each.name) },
+      });
       console.log("created author");
     }
 

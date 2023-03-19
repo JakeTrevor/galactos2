@@ -6,10 +6,7 @@ export const authorRouter = createTRPCRouter({
   getBySlug: publicProcedure.input(z.string()).query(({ ctx, input: slug }) => {
     return ctx.prisma.author.findFirstOrThrow({
       where: {
-        name: {
-          equals: unslugify(slug),
-          mode: "insensitive",
-        },
+        slug: slug,
       },
       // TODO see if we can limit this
       include: {

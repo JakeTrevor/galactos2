@@ -7,6 +7,8 @@ const index: FC = () => {
   // TODO proper handling for query
   let { status, error, data: authors } = api.authors.getAll.useQuery();
 
+  if (status !== "success") return <></>;
+
   return (
     <div className="mx-auto grid w-max grid-cols-3 justify-items-center gap-10">
       {authors!.map((author, i) => {
