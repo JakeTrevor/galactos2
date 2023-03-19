@@ -1,4 +1,4 @@
-import { Author } from "@prisma/client";
+import type { Author } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
@@ -26,7 +26,7 @@ const StaffCard: FC<props> = ({ author }) => {
         </div>
       </div>
       <div className="flex flex-col gap-2.5 text-center">
-        <div className="text-primary cursor-pointer rounded-lg text-2xl font-semibold normal-case no-underline">
+        <div className="cursor-pointer rounded-lg text-2xl font-semibold normal-case text-primary no-underline">
           {name}
         </div>
         <h2 className="text-lg text-zinc-400">{job_title}</h2>

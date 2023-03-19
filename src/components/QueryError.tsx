@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 
 interface props {
   queryName: string;
@@ -9,7 +9,7 @@ const QueryError: FC<props> = ({ queryName, query }) => {
   return (
     <>
       <p> {queryName} must be string</p>
-      <p>"{query}" is not valid</p>
+      <p>&quot;{query}&quot; is not valid</p>
     </>
   );
 };

@@ -1,9 +1,10 @@
-import { TRPCClientErrorLike } from "@trpc/client";
-import { FC } from "react";
+import type { TRPCClientErrorLike } from "@trpc/client";
+import type { AnyProcedure, AnyRouter } from "@trpc/server";
+import type { FC } from "react";
 
 interface props {
   status: "error" | "loading";
-  error: TRPCClientErrorLike<any> | null;
+  error: TRPCClientErrorLike<AnyRouter | AnyProcedure> | null;
 }
 
 const StatusHandler: FC<props> = ({ status, error }) => {
@@ -11,7 +12,7 @@ const StatusHandler: FC<props> = ({ status, error }) => {
     case "loading":
       return (
         <div className="-mb-32 -mt-16 flex h-[80vh] items-center justify-center">
-          <div className="loading btn-lg btn scale-[2] text-2xl font-bold lowercase text-red-600 " />
+          <div className="loading btn-lg btn scale-[2] bg-transparent text-2xl font-bold lowercase text-red-600 " />
         </div>
       );
     case "error":

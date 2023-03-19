@@ -1,4 +1,4 @@
-import { Article } from "@prisma/client";
+import type { Article } from "@prisma/client";
 import type { FC } from "react";
 
 interface props {
@@ -8,11 +8,11 @@ interface props {
 const ArticleCard: FC<props> = ({ article }) => {
   const { title, content, image_url, id: articleID } = article;
 
-  let snippet = content.split(".")[0] + " ...";
+  let snippet = `${content.split(".")[0] ?? ""} ...`;
 
   return (
     <>
-      <div className="card bg-base-300 min-w-[20rem] shadow-xl">
+      <div className="card min-w-[20rem] bg-base-300 shadow-xl">
         <figure>
           <img src={image_url} alt="..." />
         </figure>
@@ -22,7 +22,7 @@ const ArticleCard: FC<props> = ({ article }) => {
           <div className="card-actions justify-end">
             <a
               href={`/article/${articleID}`}
-              className="btn btn-secondary rounded-lg"
+              className="btn-secondary btn rounded-lg"
             >
               Read More
             </a>

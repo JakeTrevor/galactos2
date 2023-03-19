@@ -1,8 +1,9 @@
-import { type NextPage } from "next";
+import type { NextPage } from "next";
 import LatestArticle from "~/components/LatestArticle";
 import ArticleList from "~/components/ArticleList";
 import { api } from "~/utils/api";
 import StatusHandler from "~/components/StatusHandler";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   let { status, error, data: articles } = api.articles.getMostRecent.useQuery();
@@ -14,6 +15,9 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Galactos | Home</title>
+      </Head>
       <div className="my-10">
         <div className="text-4xl font-bold">
           Read all the latest news from all over the Galaxy . . .

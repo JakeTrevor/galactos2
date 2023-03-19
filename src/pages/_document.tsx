@@ -8,7 +8,6 @@ export default function Document() {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-        <title>Galactos</title>
       </Head>
       <body>
         <Main />

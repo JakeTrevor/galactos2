@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
@@ -5,6 +6,9 @@ import type { FC } from "react";
 const Header: FC = () => {
   return (
     <>
+      <Head>
+        <title>Galactos</title>
+      </Head>
       <header className="navbar sticky top-0 z-10 h-[10vh] bg-base-100 px-16 py-4 shadow-lg">
         <div className="flex-1 items-center gap-10">
           <Link href="/">

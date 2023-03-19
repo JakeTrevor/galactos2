@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import type { FC } from "react";
 import { api } from "~/utils/api";
 
 import { ArticleList, QueryError, StatusHandler } from "~/components";
+import Head from "next/head";
 
 const StaffPage: FC = () => {
   let { name_slug } = useRouter().query;
@@ -24,6 +25,9 @@ const StaffPage: FC = () => {
 
   return (
     <>
+      <Head>
+        <title>Galactos | {name}</title>
+      </Head>
       <div className="flex flex-row items-center justify-start gap-5">
         <div className="avatar">
           <div className="w-32 rounded-full">

@@ -1,4 +1,4 @@
-import { Author } from "@prisma/client";
+import type { Author } from "@prisma/client";
 import type { FC } from "react";
 import slugify from "~/helpers/slugify";
 
@@ -16,10 +16,10 @@ const AuthorBlock: FC<props> = ({ author }) => {
     >
       <div className="avatar">
         <div className="w-32 rounded-full">
-          <img src={image_url} />
+          <img alt="" src={image_url} />
         </div>
       </div>
-      <div className="text-primary text-2xl font-semibold">{name}</div>
+      <div className="text-2xl font-semibold text-primary">{name}</div>
       <h2 className="text-center text-xl text-zinc-400">{job_title}</h2>
 
       <p className="mt-4 text-justify">{description}</p>

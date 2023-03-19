@@ -1,7 +1,11 @@
 import type { FC, ReactNode } from "react";
 import Header from "~/components/Header";
 
-const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+interface props {
+  children: ReactNode;
+}
+
+const Layout: FC<props> = ({ children }) => {
   return (
     <>
       <Header />

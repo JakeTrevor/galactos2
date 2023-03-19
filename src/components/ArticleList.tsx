@@ -1,5 +1,5 @@
+import type { Article } from "@prisma/client";
 import type { FC } from "react";
-import { Article } from "@prisma/client";
 
 import ArticleCard from "./cards/ArticleCard";
 
@@ -12,7 +12,7 @@ const ArticleList: FC<props> = ({ blockTitle, articles }) => {
   return (
     <>
       <div className="mt-20 flex flex-col py-5">
-        <div className="text-secondary text-2xl font-bold">{blockTitle}</div>
+        <div className="text-2xl font-bold text-secondary">{blockTitle}</div>
         <div className="divider"></div>
       </div>
       <div className="flex flex-row gap-10 overflow-scroll">

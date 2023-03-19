@@ -1,3 +1,4 @@
+import Head from "next/head";
 import type { FC } from "react";
 import StaffCard from "~/components/cards/StaffCard";
 import StatusHandler from "~/components/StatusHandler";
@@ -11,6 +12,9 @@ const index: FC = () => {
 
   return (
     <>
+      <Head>
+        <title>Galactos | Our Staff</title>
+      </Head>
       <div className="mx-auto grid w-max grid-cols-3 justify-items-center gap-10">
         {authors!.map((author, i) => {
           return (

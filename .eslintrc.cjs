@@ -9,6 +9,9 @@ module.exports = {
       parserOptions: {
         project: "tsconfig.json",
       },
+      rules: {
+        "prefer-const": "off",
+      },
     },
   ],
   parser: "@typescript-eslint/parser",
@@ -25,6 +28,5 @@ module.exports = {
         fixStyle: "inline-type-imports",
       },
     ],
-    "prefer-const": "off",
   },
 };
