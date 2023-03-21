@@ -17,6 +17,8 @@ import { prisma } from "~/server/db";
  */
 declare module "next-auth" {
   interface Session extends DefaultSession {
+    token: string; //probably evil but :shrug:
+    tokenType: string;
     user: {
       id: string;
       // ...other properties
@@ -37,10 +39,18 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session({ session, user }) {
+    async session({ session, user }) {
+      let account = await prisma.account.findFirst({
+        where: { userId: user.id },
+      });
+
       if (session.user) {
         session.user.id = user.id;
         // session.user.role = user.role; <-- put other properties on the session here
+      }
+      if (account) {
+        session.token = account.access_token || "";
+        session.tokenType = account.token_type || "";
       }
       return session;
     },
@@ -50,6 +60,8 @@ export const authOptions: NextAuthOptions = {
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
+      authorization:
+        "https://discord.com/api/oauth2/authorize?scope=identify+email+connections",
     }),
     /**
      * ...add more providers here.

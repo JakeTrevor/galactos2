@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
 
+import Profile from "./profile/Profile";
+
 const Header: FC = () => {
   return (
     <>
@@ -28,6 +30,9 @@ const Header: FC = () => {
           >
             Staff
           </Link>
+        </div>
+        <div>
+          <Profile />
         </div>
       </header>
     </>
