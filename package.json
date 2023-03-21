@@ -8,7 +8,7 @@
     "postinstall": "prisma generate",
     "prepare": "husky install",
     "setup": "prisma db push",
-    "lint": "next lint",
+    "lint": "next lint -f pretty",
     "start": "next start",
     "bootDB": "cross-env PGPASSWORD=jarp psql -U postgres"
   },
@@ -41,6 +41,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.30.0",
     "eslint-config-next": "13.1.6",
+    "eslint-formatter-pretty": "^5.0.0",
     "husky": "^8.0.3",
     "postcss": "^8.4.14",
     "prettier": "^2.8.1",
