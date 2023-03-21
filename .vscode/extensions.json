@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "irongeek.vscode-env",
+    "aaron-bond.better-comments",
+    "pkief.material-icon-theme",
+    "csstools.postcss",
+    "esbenp.prettier-vscode",
+    "prisma.prisma",
+    "natqe.reload",
+    "bradlc.vscode-tailwindcss",
+    "meganrogge.template-string-converter",
+    "gruntfuggly.todo-tree"
+  ]
+}
