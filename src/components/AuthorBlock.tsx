@@ -16,7 +16,7 @@ const AuthorBlock: FC<props> = ({ author }) => {
     >
       <div className="avatar">
         <div className="w-32 rounded-full">
-          <img alt="" src={image_url} />
+          <img src={image_url} />
         </div>
       </div>
       <div className="text-2xl font-semibold text-primary">{name}</div>

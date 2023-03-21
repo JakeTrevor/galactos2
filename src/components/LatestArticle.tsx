@@ -15,7 +15,7 @@ const LatestArticle: FC<{ article: Article }> = ({ article }) => {
       </div>
       <div className="card card-side h-max bg-base-300 shadow-xl">
         <div className="w-2/3">
-          <img className="bg-clip" src={image_url} alt="" />
+          <img className="bg-clip" src={image_url} />
         </div>
         <div className="card-body w-1/3">
           <h2 className="card-title">{title}</h2>

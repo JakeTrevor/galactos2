@@ -14,7 +14,7 @@ const ArticleCard: FC<props> = ({ article }) => {
     <>
       <div className="card min-w-[20rem] bg-base-300 shadow-xl">
         <figure>
-          <img src={image_url} alt="..." />
+          <img src={image_url} />
         </figure>
         <div className="card-body">
           <h2 className="card-title mb-4">{title}</h2>

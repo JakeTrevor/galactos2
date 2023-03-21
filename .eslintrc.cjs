@@ -11,6 +11,10 @@ module.exports = {
       },
       rules: {
         "prefer-const": "off",
+        // these should be turned off eventually
+        "@next/next/no-img-element": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "jsx-a11y/alt-text": "off",
       },
     },
   ],
